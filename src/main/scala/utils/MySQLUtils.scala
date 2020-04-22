@@ -174,7 +174,7 @@ object MySQLUtils {
   }
 
 
-  /**
+   /**
     * 拼装insertOrUpdate SQL 语句
     * @param tableName
     * @param cols
@@ -183,7 +183,7 @@ object MySQLUtils {
     */
   def getInsertOrUpdateSql(tableName: String, cols: Array[String], updateColumns: Array[String]): String = {
     val colNumbers = cols.length
-    var sqlStr = "insert into " + tableName + " values("
+    var sqlStr = "insert into " + tableName + s" (${cols.mkString(",")}) values("
     for (i <- 1 to colNumbers) {
       sqlStr += "?"
       if (i != colNumbers) {
